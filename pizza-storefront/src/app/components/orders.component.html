@@ -1,0 +1,24 @@
+<div class="margin">
+    <h2>Orders for {{ email }}</h2>
+</div>
+
+<div *ngIf="orderSum.length > 0">
+    <div *ngFor="let o of orderSum">
+        <table>
+            <tr>
+                <h4>Order Id: {{ o.orderId }}</h4>
+            </tr>
+            <tr >
+                {{ o.amount | currency: 'SGD': 'symbol-narrow'}}
+            </tr>
+        </table>
+    </div>
+</div>
+<div *ngIf="orderSum.length == 0">
+    <span>
+        <h3>No Orders Found.</h3>
+    </span>
+</div>
+<div>
+    <button [routerLink]="['/']">Back to Ordering</button>
+</div>

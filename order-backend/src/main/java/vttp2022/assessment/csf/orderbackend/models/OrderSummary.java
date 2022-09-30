@@ -1,5 +1,13 @@
 package vttp2022.assessment.csf.orderbackend.models;
 
+import java.util.List;
+
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import jakarta.json.Json;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
+
 // IMPORTANT: You can add to this class, but you cannot delete its original content
 
 public class OrderSummary {
@@ -19,5 +27,23 @@ public class OrderSummary {
 
 	public void setAmount(Float amount) { this.amount = amount; }
 	public Float getAmount() { return this.amount; }
+
+
+    public static OrderSummary convert(SqlRowSet rs) {
+		OrderSummary os = new OrderSummary();
+		os.setEmail((rs.getString("email")));
+		os.setName(rs.getString("name"));
+		os.setOrderId(rs.getInt("order_id"));
+        return os;
+    }
+
+	public JsonObject toJson() {
+        return Json.createObjectBuilder()
+            .add("name", name)
+            .add("orderId", orderId)
+            .add("email", email)
+			.add("amount", amount)
+            .build();
+    }
 
 }

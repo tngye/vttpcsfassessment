@@ -1,0 +1,23 @@
+table{
+    border: 1px solid gray;
+    width: 100%;
+    padding: 10px;
+    margin:10px;
+    border-radius: 10px;
+}
+/* tr{
+    padding: 10px;
+    margin:10px;
+} */
+div{
+    margin-right:10px;
+}
+
+.margin{
+    margin:10px;
+}
+
+button{
+    display: block;
+    float:right;
+}
